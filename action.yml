@@ -1,5 +1,5 @@
-name: Automated Version Bump
-description: Automated version bump for npm packages.
+name: Pipeline Runner
+description: Pipeline runner.
 runs:
   using: node12
   main: index.js
