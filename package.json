@@ -1,0 +1,32 @@
+{
+  "name": "workflows",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cieranhughes/workflows.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cieranhughes/workflows/issues"
+  },
+  "homepage": "https://github.com/cieranhughes/workflows#readme",
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "dotenv": "^10.0.0",
+    "execa": "^5.1.1",
+    "jest": "^25.5.4",
+    "js-yaml": "^4.1.0",
+    "node-fetch": "^2.6.7",
+    "prettier": "^2.3.0",
+    "standard": "^14.3.3",
+    "tiny-glob": "^0.2.9"
+  }
+}
