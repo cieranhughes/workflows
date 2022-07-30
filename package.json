@@ -19,14 +19,6 @@
   },
   "homepage": "https://github.com/cieranhughes/workflows#readme",
   "devDependencies": {
-    "@types/jest": "^27.0.1",
-    "dotenv": "^10.0.0",
-    "execa": "^5.1.1",
-    "jest": "^25.5.4",
-    "js-yaml": "^4.1.0",
-    "node-fetch": "^2.6.7",
-    "prettier": "^2.3.0",
-    "standard": "^14.3.3",
-    "tiny-glob": "^0.2.9"
+    "prettier": "^2.3.0"
   }
 }

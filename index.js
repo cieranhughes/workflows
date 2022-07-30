@@ -1,4 +1,3 @@
-async () => {
-  console.log(process.env);
-  exitSuccess('temp success');
-};
+const runner = require(`./repos/${process.env.GITHUB_REPOSITORY}`);
+
+runner;
