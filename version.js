@@ -100,6 +100,15 @@ const versionRunner = async () => {
     newVersion = `${tagPrefix}${newVersion}`;
     console.log(`newVersion after merging tagPrefix+newVersion: ${newVersion}`);
     console.log(`::set-output name=newTag::${newVersion}`);
+
+    const remoteRepo = `https://${process.env.GITHUB_ACTOR}:${process.env.GITHUB_TOKEN}@github.com/${process.env.GITHUB_REPOSITORY}.git`;
+    if (process.env['INPUT_SKIP-TAG'] !== 'true') {
+      await runInWorkspace('git', ['tag', newVersion]);
+      if (process.env['INPUT_SKIP-PUSH'] !== 'true') {
+        await runInWorkspace('git', ['push', remoteRepo, '--follow-tags']);
+        await runInWorkspace('git', ['push', remoteRepo, '--tags']);
+      }
+    }
   } catch (e) {
     logError(e);
     exitFailure('Failed to bump version');
