@@ -2,25 +2,29 @@ name: Pipeline Runner
 description: Pipeline runner.
 runs:
   using: node12
-  main: index.js
+  main: index1.js
 branding:
   icon: chevron-up
   color: blue
 inputs:
   tag-prefix:
     description: 'Prefix that is used for the git tag'
-    default: 'v'
-  patch-wording:
-    description: 'Words list that trigger a patch version bump 0.0.1'
-    default: 'fix'
+    default: ''
     required: false
   minor-wording:
-    description: 'Words list that trigger a minor version bump 0.1.0'
-    default: 'feat'
+    description: 'Words list that trigger a minor version bump'
+    default: 'feat,minor'
     required: false
   major-wording:
-    description: 'Words list that trigger a major version bump 1.0.0'
-    default: 'chng'
+    description: 'Words list that trigger a major version bump'
+    default: 'BREAKING CHANGE,major'
+    required: false
+  patch-wording:
+    description: 'Words list that trigger a patch version bump'
+    required: false
+  rc-wording:
+    description: 'Words list that trigger a rc version bump'
+    default: 'pre-alpha,pre-beta,pre-rc'
     required: false
   skip-tag:
     description: 'Avoid to add a TAG to the version update commit'
@@ -38,9 +42,29 @@ inputs:
     description: 'Custom dir to the package'
     default: ''
     required: false
+  target-branch:
+    description: 'A separate branch to perform the version bump on'
+    default: ''
+    required: false
+  default:
+    description: 'Set a default version bump to use'
+    default: 'patch'
+    required: false
+  preid:
+    description: 'Set a custom preid for prerelease build'
+    default: 'rc'
+    required: false
   commit-message:
     description: 'Set a custom commit message for version bump commit'
     default: ''
+    required: false
+  bump-policy:
+    description: 'Set version bump ignore policy'
+    default: 'all'
+    required: false
+  push:
+    description: '[DEPRECATED] Set to false to skip pushing the new tag'
+    default: 'true'
     required: false
 outputs:
   newTag:

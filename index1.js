@@ -138,7 +138,11 @@ const workspace = process.env.GITHUB_WORKSPACE;
     const current = pkg.version.toString();
     // set git user
     await runInWorkspace('git', ['config', 'user.name', `"${process.env.GITHUB_USER || 'Automated Version Bump'}"`]);
-    await runInWorkspace('git', ['config', 'user.email', `"${process.env.GITHUB_EMAIL}"`]);
+    await runInWorkspace('git', [
+      'config',
+      'user.email',
+      `"${process.env.GITHUB_EMAIL || 'gh-action-bump-version@users.noreply.github.com'}"`,
+    ]);
 
     let currentBranch;
     let isPullRequest = false;
@@ -262,4 +266,5 @@ function runInWorkspace(command, args) {
       }
     });
   });
+  //return execa(command, args, { cwd: workspace });
 }
