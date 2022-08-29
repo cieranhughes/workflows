@@ -1,4 +1,4 @@
-const versionRunner = require('../actions/version_ST-v4');
+const versionRunner = require('../actions/versio');
 
 const runner = async () => {
   await versionRunner;
